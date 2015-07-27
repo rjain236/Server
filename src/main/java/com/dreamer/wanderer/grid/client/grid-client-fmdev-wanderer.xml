@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast-client
+        xsi:schemaLocation="http://www.hazelcast.com/schema/client-config hazelcast-client-config-3.5.xsd"
+        xmlns="http://www.hazelcast.com/schema/client-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <group>
+        <name>fmdev_converge</name>
+        <password>fmdev_converge_hash</password>
+    </group>
+    <management-center enabled="false">http://localhost:8080/mancenter</management-center>
+    <network>
+        <cluster-members>
+            <address>127.0.0.1:5710</address>
+            <address>127.0.0.1:5711</address>
+            <address>127.0.0.1:5712</address>
+            <address>127.0.0.1:5713</address>
+            <address>127.0.0.1:5714</address>
+            <address>127.0.0.1:5715</address>
+            <address>127.0.0.1:5716</address>
+            <address>127.0.0.1:5717</address>
+            <address>127.0.0.1:5718</address>
+            <address>127.0.0.1:5719</address>
+        </cluster-members>
+        <smart-routing>true</smart-routing>
+        <redo-operation>true</redo-operation>
+        <connection-timeout>10000</connection-timeout>
+        <connection-attempt-limit>60000</connection-attempt-limit>
+        <connection-attempt-period>4000</connection-attempt-period>
+        <connection-pool-size>30</connection-pool-size>
+    </network>
+</hazelcast-client>
