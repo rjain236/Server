@@ -13,8 +13,6 @@ public interface CachePersistableBean<T extends CachePersistableBean> extends Se
 
     ZonedDateTime getTimeStamp();
 
-    void setArguments(List<Object> args);
-
     T getUpdatedInstance() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException;
 
 }

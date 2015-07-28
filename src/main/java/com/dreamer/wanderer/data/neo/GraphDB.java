@@ -1,20 +1,30 @@
 package com.dreamer.wanderer.data.neo;
 
+import com.dreamer.wanderer.bo.Snap;
 import com.dreamer.wanderer.data.DataBaseInstance;
+import com.dreamer.wanderer.data.converters.SerialiserFactory;
+import com.dreamer.wanderer.data.converters.SerialiserSchemaBasedBean;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by rjain236 on 25/7/15.
  */
 @Service("GraphDB")
-public class GraphDB implements DataBaseInstance<GraphDB,NeoBean> {
+public class GraphDB implements DataBaseInstance {
 
     private final static GraphDatabaseService database;
+
+    @Autowired
+    private SerialiserFactory serialiserFactory;
+
+    @Autowired
+    private SerialiserSchemaBasedBean serialiserSchemaBasedBean;
 
     static {
         database = new GraphDatabaseFactory()
@@ -61,18 +71,19 @@ public class GraphDB implements DataBaseInstance<GraphDB,NeoBean> {
         graphDb.shutdown();
     }
 
+
     @Override
-    public Long save(NeoBean bean) {
+    public <B extends Snap> Long save(B bean) {
         return null;
     }
 
     @Override
-    public Long saveOrUpdate(NeoBean bean) {
+    public <B extends Snap> B saveOrUpdate(B bean) {
         return null;
     }
 
     @Override
-    public void delete(NeoBean bean) {
+    public <B extends Snap> void delete(B bean) {
 
     }
 }

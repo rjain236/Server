@@ -33,6 +33,11 @@ public abstract class Serialiser<BO extends Snap,DO extends ConcreteBean> {
         return null;
     }
 
+    public DO serialise(BO snap){
+        //TODO implement the conversion of bo to do
+        return null;
+    }
+
     protected BO postProcessing(BO bean){
         return bean;
     }
